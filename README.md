@@ -28,7 +28,10 @@ $ npm install @anntopia/geometry
 ## Getting Started
 
 ```js
+// type: esmodule
 import { Chan, BezierSpline } from '@anntopia/geometry'
+// type: commonjs
+// const { Chan, BezierSpline } = require('@anntopia/geometry')
 
 const randomPoints = uniform(40) // [x0, y0, x1, y1, ...]
 const polygon = Chan(randomPoints)

@@ -1,6 +1,6 @@
 {
   "name": "anntopia",
-  "description": "A geometry, graphic and image toolkit",
+  "description": "A typescript computing geometry and visual computing toolkit",
   "author": "yrq110 <yrq1025@gmail.com>",
   "license": "MIT",
   "private": true,

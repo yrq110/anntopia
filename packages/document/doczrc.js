@@ -1,7 +1,7 @@
 export default {
   port: 3030,
   title: 'Anntopia',
-  description: 'A lightweight typescript computing geometry and visual computing library',
+  description: 'A typescript computing geometry and visual computing toolkit',
   typescript: true,
   propsParser: false,
   repository: 'https://github.com/yrq110/anntopia',
