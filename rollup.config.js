@@ -6,7 +6,7 @@ const inputFilePath = path.join(__dirname, 'src/index.ts')
 const tsconfigPath = path.join(__dirname, 'tsconfig.json')
 const packagePath = path.join(__dirname, 'package.json')
 
-const name = require(packagePath).main.replace(/\.js$/, '')
+const name = require(packagePath).main.replace(/\.cjs$/, '')
 const bundle = config => ({
   ...config,
   input: inputFilePath,
