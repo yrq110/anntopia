@@ -8,11 +8,11 @@
 
 ### [@anntopia/geometry](packages/geometry/README.md)
 
-| ![](assets/curve.png) | ![](assets/bbox.png) | ![](assets/convex.png) |
+| ![](https://cdn.jsdelivr.net/gh/yrq110/anntopia/assets/curve.png) | ![](https://cdn.jsdelivr.net/gh/yrq110/anntopia/assets/bbox.png) | ![](https://cdn.jsdelivr.net/gh/yrq110/anntopia/assets/convex.png) |
 | ---- | --- | --- |
 | [Curve](https://yrq110.me/anntopia/geometry/curve) | [BoundingBox](https://yrq110.me/anntopia/geometry/bounding-box) | [ConvexHull](https://yrq110.me/anntopia/geometry/convex-hull) |
-| ![](assets/triangulation.png) | ![](assets/distance.png) | ![](assets/area.png) |
-| [Triangulation]((https://yrq110.me/anntopia/geometry/triangulation)) | [Distance]((https://yrq110.me/anntopia/geometry/distance)) | [Area]((https://yrq110.me/anntopia/geometry/area)) |
+| ![](https://cdn.jsdelivr.net/gh/yrq110/anntopia/assets/triangulation.png) | ![](https://cdn.jsdelivr.net/gh/yrq110/anntopia/assets/distance.png) | ![](https://cdn.jsdelivr.net/gh/yrq110/anntopia/assets/area.png) |
+| [Triangulation](https://yrq110.me/anntopia/geometry/triangulation) | [Distance](https://yrq110.me/anntopia/geometry/distance) | [Area](https://yrq110.me/anntopia/geometry/area) |
 
 ### @anntopia/graphic (Todo)
 ### @anntopia/image (Todo)
