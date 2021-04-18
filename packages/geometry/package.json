@@ -1,6 +1,6 @@
 {
   "name": "@anntopia/geometry",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Computing geometry module",
   "author": "yrq110 <yrq1025@gmail.com>",
   "license": "MIT",
@@ -21,6 +21,5 @@
   },
   "dependencies": {
     "gl-matrix": "^3.3.0"
-  },
-  "devDependencies": {}
+  }
 }
