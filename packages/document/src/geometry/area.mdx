@@ -1,0 +1,58 @@
+---
+name: Area
+menu: Geometry
+route: /geometry/area
+---
+
+import { Playground, Props } from 'docz'
+import { Chan, Shoelace, VoronoiDiagram, LargestEmptyCircle, DelaunayTriangulation, } from '@anntopia/geometry'
+import Canvas from '../components/Canvas'
+import { uniform } from '../utils/randomPoints'
+
+## Overview
+
+Todo
+
+## VoronoiDiagram
+
+<Playground>
+  {
+    () => {
+      // import { VoronoiDiagram } from '@anntopia/geometry'
+      const points = uniform(40)
+      let edges = VoronoiDiagram(points)
+      edges = edges.map(edge => edge.flat())
+      return  <Canvas points={points} polygons={edges}/>
+    }
+  }
+</Playground>
+
+## LargestEmptyCircle
+
+<Playground>
+  {
+    () => {
+      // import { LargestEmptyCircle } from '@anntopia/geometry'
+      const points = uniform(40)
+      const circle = LargestEmptyCircle(points)
+      return  <Canvas points={points} circles={[circle]}/>
+    }
+  }
+</Playground>
+
+## Shoelace
+
+<Playground>
+  {
+    () => {
+      // import { Chan, Shoelace } from '@anntopia/geometry'
+      const points = uniform(40)
+      const polygon = Chan(points)
+      const area = Shoelace(polygon)
+      return <>
+        <Canvas points={polygon} polygons={[polygon]}/>
+        <div>Polygon area: { area } </div>
+      </>
+    }
+  }
+</Playground>

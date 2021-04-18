@@ -1,0 +1,65 @@
+---
+name: Bounding Box
+menu: Geometry
+route: /geometry/bounding-box
+---
+
+import { Playground, Props } from 'docz'
+import { AABB, MinAreaBox, MinPerimeterBox } from '@anntopia/geometry'
+import Canvas from '../components/Canvas'
+import { uniform } from '../utils/randomPoints'
+
+## Overview
+
+Todo
+
+## AxisAlignedBoundingBox
+
+<Playground>
+  {
+    () => {
+      // import { AABB } from '@anntopia/geometry'
+      const points = uniform(10)
+      const rect = AABB(points)
+      const [minx, miny, maxx, maxy] = rect
+      const vertices = [
+        minx, miny,
+        maxx, miny,
+        maxx, maxy,
+        minx, maxy,
+        minx, miny,
+      ]
+      return  <Canvas points={points} lines={vertices}/>
+    }
+  }
+</Playground>
+
+## MinAreaBox
+
+<Playground>
+  {
+    () => {
+      // import { MinAreaBox } from '@anntopia/geometry'
+      const points = uniform(10, 30, 30)
+      const rect = MinAreaBox(points)
+      const [v0x, v0y] = [rect[0], rect[1]]
+      rect.push(v0x, v0y)
+      return  <Canvas points={points} lines={rect}/>
+    }
+  }
+</Playground>
+
+## MinPerimeterBox
+
+<Playground>
+  {
+    () => {
+      // import { MinPerimeterBox } from '@anntopia/geometry'
+      const points = uniform(10, 30, 30)
+      const rect = MinPerimeterBox(points)
+      const [v0x, v0y] = [rect[0], rect[1]]
+      rect.push(v0x, v0y)
+      return  <Canvas points={points} lines={rect}/>
+    }
+  }
+</Playground>

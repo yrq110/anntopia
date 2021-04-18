@@ -1,0 +1,41 @@
+---
+name: Overview
+route: /
+---
+
+## Why Anntopia
+
+* **Modular** and **Simple** functions that relevant to mathematics in computing geometry and visual computing
+* Strong typed code with **TypeScript**
+* **Fast** processing with state-of-the-art algorithms (Future)
+
+> **Anntopia is a highly experimental library for now!**
+
+## Goal
+
+Since there are many mature js mathematical libs in different aspects(geospatial, matrix, etc.), but it seems no one includes most-used geometry or graphic modules.
+
+Lots of front-end graphic or render engines(three, babylon, antvis/g) implement matrix or geospatial utils inside. Developers will also implement such functions according to their needs, but it will cost extra time apart from their working hours.
+
+Against this background, [Anntopia](https://github.com/yrq110/anntopia) aims to provide functions to the most mentioned problems in computing geometry and visual computing.
+
+## Packages
+
+* [@anntopia/geometry](geometry/index)
+
+  Contains computing geometry functions, such as curve/convex hull/triangulation/etc..
+* [@anntopia/graphic(Todo)](graphic/index)
+  
+  Contains computer graphic functions, such as transformation/interpolation/etc..
+* [@anntopia/image(Todo)](image/index)
+  
+  Contains image processing functions, such as noise/filter/etc..
+
+## Further Reading
+
+For now there are other better choices at these kinds of needing:
+
+* For geospatial analysis, [turf.js](https://github.com/Turfjs/turf) is a handy tool to handle the traditional spatial operations.
+* For 2D geometry and image processing, using [OpenCV.js](https://docs.opencv.org/master/d5/d10/tutorial_js_root.html) with high performance in browser(due to wasm execution) is a good choice.
+* For 2D points and polygon triangulation, [delaunator](https://github.com/mapbox/delaunator) and [earcut](https://github.com/mapbox/earcut) are fast libraries powered by advanced triangulation methods.
+* ...

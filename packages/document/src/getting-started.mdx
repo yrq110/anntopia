@@ -1,0 +1,28 @@
+---
+name: Getting Started
+route: /getting-started
+---
+
+## Installation
+
+```shell
+$ yarn add @anntopia/geometry
+# or
+$ npm install @anntopia/geometry
+```
+
+## Use
+
+```js
+import { Chan, BezierSpline } from '@anntopia/geometry'
+
+const randomPoints = uniform(40) // [x0, y0, x1, y1, ...]
+const polygon = Chan(randomPoints)
+
+const dataPoints = [50, 250, 200, 150, 100, 50, 250, 70, 400, 50, 450, 250]
+const spline = new BezierSpline(dataPoints, { tension: 0.3 }, 0.01)
+let splinePoints = spline.getInterpolation()
+spline.setConfig({ tension: 0.7 })
+spline.setStep(0.005)
+splinePoints = spline.getInterpolation()
+```

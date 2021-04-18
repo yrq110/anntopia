@@ -1,0 +1,48 @@
+---
+name: Distance
+menu: Geometry
+route: /geometry/distance
+---
+
+import { Playground, Props } from 'docz'
+import { ClosestPair, FarthestPair } from '@anntopia/geometry'
+import Canvas from '../components/Canvas'
+import { uniform } from '../utils/randomPoints'
+
+## Overview
+
+Todo
+
+## ClosestPair
+
+<Playground>
+  {
+    () => {
+      // import { ClosestPair } from '@anntopia/geometry'
+      const points = uniform(10)
+      const { distance, begin, end } = ClosestPair(points)
+      const pairPoints = [...begin, ...end]
+      return <>
+        <Canvas points={points} lines={pairPoints} />
+        <div>Closest pair points distance: { distance } </div>
+      </>
+    }
+  }
+</Playground>
+
+## FarthestPair
+
+<Playground>
+  {
+    () => {
+      // // import { FarthestPair } from '@anntopia/geometry'
+      const points = uniform(10)
+      const { distance, begin, end } = FarthestPair(points)
+      const pairPoints = [...begin, ...end]
+      return <>
+        <Canvas points={points} lines={pairPoints} />
+        <div>Farthest pair points distance: { distance } </div>
+      </>
+    }
+  }
+</Playground>

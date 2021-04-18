@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "version": "0.0.1",
+  "name": "@anntopia/document",
+  "description": "Anntopia document site",
+  "author": "yrq110 <yrq1025@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "src/",
+    "doczrc.js",
+    "tsconfig.json",
+    "package.json"
+  ],
+  "scripts": {
+    "dev": "docz dev",
+    "build": "rimraf ./docz && docz build"
+  },
+  "dependencies": {
+    "@anntopia/geometry": "^0.0.1",
+    "@emotion/react": "^11.1.1",
+    "@emotion/styled": "^11.0.0",
+    "docz": "latest",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

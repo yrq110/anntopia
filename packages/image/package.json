@@ -1,0 +1,25 @@
+{
+  "name": "@anntopia/image",
+  "version": "0.0.1",
+  "description": "Image processing module",
+  "author": "yrq110 <yrq1025@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist/"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint 'src/**/*.{js,ts,tsx,jsx}'",
+    "build": "rimraf ./dist && rollup -c && tsc",
+    "test": "jest --config ../../jest.config.json"
+  },
+  "dependencies": {
+    "gl-matrix": "^3.3.0"
+  }
+}
