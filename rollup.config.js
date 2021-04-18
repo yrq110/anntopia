@@ -23,7 +23,7 @@ export default [
     ],
     output: [
       {
-        file: `${name}.js`,
+        file: `${name}.cjs`,
         format: 'cjs',
         sourcemap: false,
       },

@@ -1,3 +1,0 @@
-const NDCToViewport = (origin: number[]) => {
-
-}
