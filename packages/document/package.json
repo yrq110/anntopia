@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "dev": "docz dev",
-    "build": "rimraf ./docz && docz build"
+    "build": "rimraf .docz && docz build"
   },
   "dependencies": {
     "@anntopia/geometry": "^0.0.2",
