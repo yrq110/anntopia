@@ -14,9 +14,47 @@ Todo
 
 ## Line
 
-### LineIntersection
+### Line Intersection
 
-### LineSegmentsIntersection
+<Playground>
+  {
+    () => {
+      const lineA = [20, 50, 50, 120]
+      const lineB = [30, 300, 120, 30]
+      const intersect = LineIntersection(
+        [lineA[0], lineA[1]],
+        [lineA[2], lineA[3]],
+        [lineB[0], lineB[1]],
+        [lineB[2], lineB[3]],
+      )
+      return <>
+        <Canvas lines={[lineA, lineB]}/>
+        <div>intersect: { intersect ? intersect.join(', ') : 'null' } </div>
+      </>
+    }
+  }
+</Playground>
+
+### Line Segments Intersection
+
+<Playground>
+  {
+    () => {
+      const lineA = [20, 50, 50, 120]
+      const lineB = [30, 300, 120, 30]
+      const intersect = LineSegmentsIntersection(
+        [lineA[0], lineA[1]],
+        [lineA[2], lineA[3]],
+        [lineB[0], lineB[1]],
+        [lineB[2], lineB[3]],
+      )
+      return <>
+        <Canvas lines={[lineA, lineB]}/>
+        <div>intersect: { intersect ? intersect.join(', ') : 'null' } </div>
+      </>
+    }
+  }
+</Playground>
 
 ## Polygon
 

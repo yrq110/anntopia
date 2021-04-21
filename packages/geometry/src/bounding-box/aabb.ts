@@ -10,7 +10,7 @@ const AxisAlignedBox = (points: number[]) => {
     miny = Math.min(y, miny)
     maxy = Math.max(y, maxy)
   }
-  return [minx, miny, maxx, maxy]
+  return [minx, miny, minx, maxy, maxx, maxy, maxx, miny]
 }
 
 export default AxisAlignedBox

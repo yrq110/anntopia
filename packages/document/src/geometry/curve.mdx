@@ -79,7 +79,7 @@ derivatives | `[number, number]` | First derivatives of x in start and end point
         boundary: BoundaryCondition.Clamped // or 1
       })
       const points = spline.getInterpolation()
-      return  <Canvas points={dataPoints} lines={points}/>
+      return  <Canvas points={dataPoints} lines={[points]}/>
     }
   }
 </Playground>
@@ -109,7 +109,7 @@ Same as the Config in [CubicSpline](#cubic-spline)
         boundary: BoundaryCondition.NotAKnot
       })
       const points = spline.getInterpolation()
-      return  <Canvas points={dataPoints} lines={points}/>
+      return  <Canvas points={dataPoints} lines={[points]}/>
     }
   }
 </Playground>
@@ -147,7 +147,7 @@ derivatives | number[] | First derivatives of x and y in every data points.
       const spline = new HermiteSpline(dataPoints)
       spline.setConfig({ derivatives })
       const points = spline.getInterpolation()
-      return  <Canvas points={dataPoints} lines={points}/>
+      return  <Canvas points={dataPoints} lines={[points]}/>
     }
   }
 </Playground>
@@ -179,7 +179,7 @@ tension | number | Tension value, range is `[0,1]`. Default is `0.1`.
       const spline = new CardinalSpline(dataPoints)
       spline.setConfig({ tension: 0.2 })
       const points = spline.getInterpolation()
-      return  <Canvas points={dataPoints} lines={points}/>
+      return  <Canvas points={dataPoints} lines={[points]}/>
     }
   }
 </Playground>
@@ -211,7 +211,7 @@ closed | boolean | Closed curve. Default is `false`.
       spline.setConfig({ tension: 0.7, closed: true })
       spline.setStep(0.001)
       const points = spline.getInterpolation()
-      return  <Canvas points={dataPoints} lines={points}/>
+      return  <Canvas points={dataPoints} lines={[points]}/>
     }
   }
 </Playground>
@@ -255,7 +255,7 @@ knots | number[] | Knot vectors. length = n + k + 1. Default is `an array of qua
         knots: createQuasiUniformKnots({ points: dataPoints, k: 4 }),
       })
       const points = spline.getInterpolation()
-      return  <Canvas points={dataPoints} lines={points}/>
+      return  <Canvas points={dataPoints} lines={[points]}/>
     }
   }
 </Playground>
@@ -301,7 +301,7 @@ w | number[] | Weight values. The length is the same as data points. Default is 
       })
       spline.insertKnot(0.35)
       const points = spline.getInterpolation()
-      return  <Canvas points={dataPoints} lines={points}/>
+      return  <Canvas points={dataPoints} lines={[points]}/>
     }
   }
 </Playground>

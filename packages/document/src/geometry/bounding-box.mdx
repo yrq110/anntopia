@@ -21,15 +21,7 @@ Todo
       // import { AABB } from '@anntopia/geometry'
       const points = uniform(10)
       const rect = AABB(points)
-      const [minx, miny, maxx, maxy] = rect
-      const vertices = [
-        minx, miny,
-        maxx, miny,
-        maxx, maxy,
-        minx, maxy,
-        minx, miny,
-      ]
-      return  <Canvas points={points} lines={vertices}/>
+      return  <Canvas points={points} polygons={[rect]}/>
     }
   }
 </Playground>
@@ -42,9 +34,7 @@ Todo
       // import { MinAreaBox } from '@anntopia/geometry'
       const points = uniform(10, 30, 30)
       const rect = MinAreaBox(points)
-      const [v0x, v0y] = [rect[0], rect[1]]
-      rect.push(v0x, v0y)
-      return  <Canvas points={points} lines={rect}/>
+      return  <Canvas points={points} polygons={[rect]}/>
     }
   }
 </Playground>
@@ -57,9 +47,7 @@ Todo
       // import { MinPerimeterBox } from '@anntopia/geometry'
       const points = uniform(10, 30, 30)
       const rect = MinPerimeterBox(points)
-      const [v0x, v0y] = [rect[0], rect[1]]
-      rect.push(v0x, v0y)
-      return  <Canvas points={points} lines={rect}/>
+      return  <Canvas points={points} polygons={[rect]}/>
     }
   }
 </Playground>

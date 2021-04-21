@@ -5,7 +5,7 @@ import {
 
 export type CanvasParam = {
   points?: number[]
-  lines?: number[]
+  lines?: number[][]
   polygons?: number[][]
   circles?: any[]
   pointColor?: string
@@ -31,7 +31,9 @@ const Canvas: FC<CanvasParam> = ({ ...props }) => {
 
     setBackgroundColor('white', ctx)
 
-    if (lines) drawLines(lines, ctx)
+    if (lines) {
+      lines.forEach((line) => drawLines(line, ctx))
+    }
     if (polygons) {
       polygons.forEach((polygon) => {
         polygon.push(polygon[0], polygon[1])

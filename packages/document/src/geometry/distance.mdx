@@ -23,7 +23,7 @@ Todo
       const { distance, begin, end } = ClosestPair(points)
       const pairPoints = [...begin, ...end]
       return <>
-        <Canvas points={points} lines={pairPoints} />
+        <Canvas points={points} lines={[pairPoints]} />
         <div>Closest pair points distance: { distance } </div>
       </>
     }
@@ -40,7 +40,7 @@ Todo
       const { distance, begin, end } = FarthestPair(points)
       const pairPoints = [...begin, ...end]
       return <>
-        <Canvas points={points} lines={pairPoints} />
+        <Canvas points={points} lines={[pairPoints]} />
         <div>Farthest pair points distance: { distance } </div>
       </>
     }
