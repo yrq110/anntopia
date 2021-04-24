@@ -4,10 +4,9 @@
   "description": "Computing geometry module",
   "author": "yrq110 <yrq1025@gmail.com>",
   "license": "MIT",
-  "main": "src/index.ts",
-  "main2": "dist/index.cjs",
-  "module2": "dist/index.mjs",
-  "typings2": "dist/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
   "type": "module",
   "files": [
     "dist/"
