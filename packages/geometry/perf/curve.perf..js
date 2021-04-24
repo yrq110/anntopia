@@ -10,7 +10,7 @@ import {
 const require = createRequire(import.meta.url)
 const { Suite } = require('benchmark')
 
-const suite = new Suite('convex-hull', { async: true })
+const suite = new Suite('curve', { async: true })
 const points = [50, 250, 100, 50, 200, 150, 250, 70, 380, 100, 450, 250]
 
 const runner = (Ctor, dataPoints) => {

@@ -5,7 +5,7 @@ import { JarvisMarch, PolygonTriangulation, MinWeightTriangulation } from '../di
 const require = createRequire(import.meta.url)
 const { Suite } = require('benchmark')
 
-const suite = new Suite('Trangulation', { async: true })
+const suite = new Suite('trangulation', { async: true })
 const points = uniform(100)
 const polygon = JarvisMarch(points)
 /**
