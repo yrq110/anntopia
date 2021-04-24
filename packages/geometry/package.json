@@ -1,6 +1,6 @@
 {
   "name": "@anntopia/geometry",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Computing geometry module",
   "author": "yrq110 <yrq1025@gmail.com>",
   "license": "MIT",
@@ -19,6 +19,5 @@
     "lint": "eslint 'src/**/*.{js,ts,tsx,jsx}'",
     "build": "rimraf ./dist && rollup -c && tsc",
     "test": "jest --config ../../jest.config.json"
-  },
-  "dependencies": {}
+  }
 }

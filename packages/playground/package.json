@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@anntopia/playground",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Playground for anntopia",
   "author": "yrq110 <yrq1025@gmail.com>",
   "license": "MIT",
@@ -15,6 +15,6 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@anntopia/geometry": "^0.0.2"
+    "@anntopia/geometry": "^0.0.3"
   }
 }
