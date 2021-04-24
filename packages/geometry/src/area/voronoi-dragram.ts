@@ -1,4 +1,4 @@
-import { cross, IPoint2D } from '../util'
+import { crossProduct, Vec2 } from '../util'
 import { DelaunayTriangulation } from '../triangulation'
 
 const EdgeJoinSign = ':'
@@ -7,7 +7,7 @@ const VoronoiDiagram = (
 ) => {
   const triangles = DelaunayTriangulation(points)
 
-  const edges: IPoint2D[][] = []
+  const edges: Vec2[][] = []
   const edgeExcenterMap: Map<string, number[]> = new Map()
   triangles.forEach((triangle, index) => {
     const edge1 = [triangle.p0, triangle.p1]
@@ -67,11 +67,11 @@ const VoronoiDiagram = (
 
       const p1 = excenter
 
-      const v1: IPoint2D = [edgeEnd[0] - edgeStart[0], edgeEnd[1] - edgeStart[1]]
-      const v2: IPoint2D = [excenter[0] - edgeStart[0], excenter[1] - edgeStart[1]]
-      const aside = cross(v1, v2) < 0 ? 1 : -1
+      const v1: Vec2 = [edgeEnd[0] - edgeStart[0], edgeEnd[1] - edgeStart[1]]
+      const v2: Vec2 = [excenter[0] - edgeStart[0], excenter[1] - edgeStart[1]]
+      const aside = crossProduct(v1, v2) < 0 ? 1 : -1
 
-      const p2: IPoint2D = [
+      const p2: Vec2 = [
         excenter[0] + aside * (edgeCenter[0] - excenter[0]) * 1e5,
         excenter[1] + aside * (edgeCenter[1] - excenter[1]) * 1e5,
       ]

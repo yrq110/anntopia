@@ -1,8 +1,8 @@
-import { IPoint2D } from '../util/type'
+import { Vec2 } from '../util/type'
 
-const angleToPoint = (p1: IPoint2D, p2: IPoint2D) => Math.atan2(p1[1] - p2[1], p2[0] - p1[0])
+const angleToPoint = (p1: Vec2, p2: Vec2) => Math.atan2(p1[1] - p2[1], p2[0] - p1[0])
 
-const getAreaBetween3Points = (p1: IPoint2D, p2: IPoint2D, p3: IPoint2D) => (
+const getAreaBetween3Points = (p1: Vec2, p2: Vec2, p3: Vec2) => (
   // reversed the y because js coordinates
   (p2[0] - p1[0]) * (p1[1] - p3[1]) - (p3[0] - p1[0]) * (p1[1] - p2[1])
 )
@@ -11,13 +11,13 @@ const getAreaBetween3Points = (p1: IPoint2D, p2: IPoint2D, p3: IPoint2D) => (
  * 3 points are defined as being "left" if the area
  * between them using the area calculation is positive.
  */
-function checkIfLeftTurn(p1: IPoint2D, p2: IPoint2D, p3: IPoint2D) {
+function checkIfLeftTurn(p1: Vec2, p2: Vec2, p3: Vec2) {
   return getAreaBetween3Points(p1, p2, p3) > 0
 }
 
 const GrahamScan = (points: number[]) => {
   const n = points.length / 2
-  const pts: IPoint2D[] = new Array(n).fill(0).map((_, i) => [points[i * 2], points[i * 2 + 1]])
+  const pts: Vec2[] = new Array(n).fill(0).map((_, i) => [points[i * 2], points[i * 2 + 1]])
 
   if (pts.length < 4) return points
 
@@ -55,7 +55,7 @@ const GrahamScan = (points: number[]) => {
     i += 1
   }
 
-  const stack: IPoint2D[] = [pts[0], pts[1]]
+  const stack: Vec2[] = [pts[0], pts[1]]
   let index = 2
   let stacklen = stack.length
   while (index < n) {

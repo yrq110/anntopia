@@ -1,7 +1,7 @@
-import { IPoint2D, ICircle } from '../util/type'
+import { Vec2, ICircle } from '../util/type'
 
-export const triangleCircumcircle = (p0: IPoint2D, p1: IPoint2D, p2: IPoint2D): ICircle => {
-  const center: IPoint2D = [0, 0]
+export const triangleCircumcircle = (p0: Vec2, p1: Vec2, p2: Vec2): ICircle => {
+  const center: Vec2 = [0, 0]
 
   const A = p1[0] - p0[0]
   const B = p1[1] - p0[1]
@@ -40,15 +40,15 @@ export const triangleCircumcircle = (p0: IPoint2D, p1: IPoint2D, p2: IPoint2D): 
 }
 
 export default class Triangle {
-  p0: IPoint2D
+  p0: Vec2
 
-  p1: IPoint2D
+  p1: Vec2
 
-  p2: IPoint2D
+  p2: Vec2
 
   circumCircle?: ICircle
 
-  constructor(p0: IPoint2D, p1: IPoint2D, p2: IPoint2D, circumCircle = false) {
+  constructor(p0: Vec2, p1: Vec2, p2: Vec2, circumCircle = false) {
     this.p0 = p0
     this.p1 = p1
     this.p2 = p2

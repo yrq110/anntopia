@@ -1,14 +1,10 @@
-import { vec2 } from 'gl-matrix'
+import { Vec2, squaredLength, squaredDistance } from '../util'
 
 export default class Point2D {
-  private val: vec2
+  private val: Vec2
 
   constructor(x?: number, y?: number) {
-    if (!Number.isNaN(x) && !Number.isNaN(y)) {
-      this.val = vec2.fromValues(x ?? 0, y ?? 0)
-    } else {
-      this.val = vec2.create()
-    }
+    this.val = [x ?? 0, y ?? 0]
   }
 
   get value() {
@@ -29,12 +25,14 @@ export default class Point2D {
   }
 
   add(point: Point2D) {
-    vec2.add(this.val, this.val, point.val)
+    this.val[0] += point.x
+    this.val[1] += point.y
     return this
   }
 
   subtract(point: Point2D) {
-    vec2.subtract(this.val, this.val, point.val)
+    this.val[0] -= point.x
+    this.val[1] -= point.y
     return this
   }
 
@@ -45,16 +43,17 @@ export default class Point2D {
   }
 
   scale(n: number) {
-    vec2.scale(this.val, this.val, n)
+    this.val[0] *= n
+    this.val[1] *= n
     return this
   }
 
   sqrLen() {
-    return vec2.sqrLen(this.val)
+    return squaredLength(this.val)
   }
 
   sqrDist(p: Point2D) {
-    return vec2.sqrDist(p.value, this.val)
+    return squaredDistance(p.value, this.val)
   }
 
   clone() {

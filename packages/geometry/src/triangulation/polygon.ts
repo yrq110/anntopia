@@ -1,31 +1,31 @@
-import { IPoint2D } from '../util/type'
+import { Vec2 } from '../util/type'
 
-const dot = (v0: IPoint2D, v1: IPoint2D) => v0[0] * v1[0] + v0[1] * v1[1]
-const norm = (v: IPoint2D) => Math.sqrt(v[0] ** 2 + v[1] ** 2)
+const dot = (v0: Vec2, v1: Vec2) => v0[0] * v1[0] + v0[1] * v1[1]
+const norm = (v: Vec2) => Math.sqrt(v[0] ** 2 + v[1] ** 2)
 
-const minimumTriangleAngle = (p0: IPoint2D, p1: IPoint2D, p2: IPoint2D) => {
-  const v10: IPoint2D = [p1[0] - p0[0], p1[1] - p0[1]]
-  const v20: IPoint2D = [p2[0] - p0[0], p2[1] - p0[1]]
+const minimumTriangleAngle = (p0: Vec2, p1: Vec2, p2: Vec2) => {
+  const v10: Vec2 = [p1[0] - p0[0], p1[1] - p0[1]]
+  const v20: Vec2 = [p2[0] - p0[0], p2[1] - p0[1]]
   const angle0 = Math.acos(dot(v10, v20) / (norm(v10) * norm(v20)))
 
-  const v01: IPoint2D = [p0[0] - p1[0], p0[1] - p1[1]]
-  const v21: IPoint2D = [p2[0] - p1[0], p2[1] - p1[1]]
+  const v01: Vec2 = [p0[0] - p1[0], p0[1] - p1[1]]
+  const v21: Vec2 = [p2[0] - p1[0], p2[1] - p1[1]]
   const angle1 = Math.acos(dot(v01, v21) / (norm(v01) * norm(v21)))
 
-  const v02: IPoint2D = [p0[0] - p2[0], p0[1] - p2[1]]
-  const v12: IPoint2D = [p1[0] - p2[0], p1[1] - p2[1]]
+  const v02: Vec2 = [p0[0] - p2[0], p0[1] - p2[1]]
+  const v12: Vec2 = [p1[0] - p2[0], p1[1] - p2[1]]
   const angle2 = Math.acos(dot(v02, v12) / (norm(v02) * norm(v12)))
 
   return Math.min(angle0, angle1, angle2)
 }
 
-const isPointInTriangle = (p: IPoint2D, p0: IPoint2D, p1: IPoint2D, p2: IPoint2D) => {
+const isPointInTriangle = (p: Vec2, p0: Vec2, p1: Vec2, p2: Vec2) => {
   // Barycentric coordinate:
   // p = p0 + (p1 - p0) * u + (p2 - p0) * v
 
-  const v0: IPoint2D = [p1[0] - p0[0], p1[1] - p0[1]]
-  const v1: IPoint2D = [p2[0] - p0[0], p2[1] - p0[1]]
-  const v2: IPoint2D = [p[0] - p0[0], p0[1] - p0[1]]
+  const v0: Vec2 = [p1[0] - p0[0], p1[1] - p0[1]]
+  const v1: Vec2 = [p2[0] - p0[0], p2[1] - p0[1]]
+  const v2: Vec2 = [p[0] - p0[0], p0[1] - p0[1]]
   const dot00 = dot(v0, v0)
   const dot01 = dot(v0, v1)
   const dot02 = dot(v0, v2)

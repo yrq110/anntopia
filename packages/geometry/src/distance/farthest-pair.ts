@@ -1,5 +1,5 @@
 import { GrahamScan } from '../convex-hull'
-import { cross, distance } from '../util'
+import { crossProduct, distance } from '../util'
 
 /** rotating calipers algorithm */
 const FarthestPair = (points: number[]) => {
@@ -16,8 +16,8 @@ const FarthestPair = (points: number[]) => {
     while (true) {
       const j1 = [convex[j * 2], convex[j * 2 + 1]]
       const j2 = [convex[(j + 1) * 2], convex[(j + 1) * 2 + 1]]
-      const area1 = Math.abs(cross([p1[0] - j1[0], p1[1] - j1[1]], [p2[0] - j1[0], p2[1] - j1[1]]))
-      const area2 = Math.abs(cross([p1[0] - j2[0], p1[1] - j2[1]], [p2[0] - j2[0], p2[1] - j2[1]]))
+      const area1 = Math.abs(crossProduct([p1[0] - j1[0], p1[1] - j1[1]], [p2[0] - j1[0], p2[1] - j1[1]]))
+      const area2 = Math.abs(crossProduct([p1[0] - j2[0], p1[1] - j2[1]], [p2[0] - j2[0], p2[1] - j2[1]]))
       if (area1 <= area2) {
         j += 1
         if (j > n - 1) j = 0

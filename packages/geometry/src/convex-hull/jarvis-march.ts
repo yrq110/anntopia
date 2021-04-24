@@ -1,6 +1,6 @@
-import { IPoint2D } from '../util/type'
+import { Vec2 } from '../util/type'
 
-const orientation = (p: IPoint2D, q: IPoint2D, r: IPoint2D) => {
+const orientation = (p: Vec2, q: Vec2, r: Vec2) => {
   const val = (q[1] - p[1]) * (r[0] - q[0]) - (q[0] - p[0]) * (r[1] - q[1])
   if (val === 0) return val
   return val > 0 ? 1 : -1

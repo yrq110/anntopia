@@ -1,6 +1,6 @@
 import { Triangle } from '../primitive'
 import { sortPointsByAntiClockwise } from '../util'
-import { IPoint2D } from '../util/type'
+import { Vec2 } from '../util/type'
 
 /** Bowyer–Watson algorithm */
 const DelaunayTriangulation = (points: number[]) => {
@@ -43,7 +43,7 @@ const DelaunayTriangulation = (points: number[]) => {
 
   let triangles = [st]
 
-  const checkEdgeHash = (p0: IPoint2D, p1: IPoint2D, hash: Set<string>) => {
+  const checkEdgeHash = (p0: Vec2, p1: Vec2, hash: Set<string>) => {
     const hash1 = `${p0[0]}:${p0[1]}:${p1[0]}:${p1[1]}`
     const hash2 = `${p1[0]}:${p1[1]}:${p0[0]}:${p0[1]}`
     if (hash.has(hash1)) return hash1
@@ -56,7 +56,7 @@ const DelaunayTriangulation = (points: number[]) => {
 
   // Triangulate each vertex
   for (let i = 0; i < n; i += 1) {
-    const v: IPoint2D = [points[i * 2], points[i * 2 + 1]]
+    const v: Vec2 = [points[i * 2], points[i * 2 + 1]]
     triangles = triangles.filter((triangle) => {
       const { center, r } = triangle.circumCircle!
       const distance = (center[0] - v[0]) ** 2 + (center[1] - v[1]) ** 2

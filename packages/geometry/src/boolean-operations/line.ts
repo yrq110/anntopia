@@ -1,13 +1,13 @@
-import { IPoint2D } from '../util'
+import { Vec2 } from '../util'
 
-export const LineIntersection = (
-  p0: IPoint2D, p1: IPoint2D, // line1
-  p2: IPoint2D, p3: IPoint2D, // line2
+export const LinesIntersection = (
+  p0: Vec2, p1: Vec2, // line1
+  p2: Vec2, p3: Vec2, // line2
 ) => {
   const D = (p0[0] - p1[0]) * (p2[1] - p3[1]) - (p0[1] - p1[1]) * (p2[0] - p3[0])
   if (D === 0) return null
 
-  const p: IPoint2D = [0, 0]
+  const p: Vec2 = [0, 0]
   p[0] = (
     (p0[0] * p1[1] - p0[1] * p1[0]) * (p2[0] - p3[0])
     - (p0[0] - p1[0]) * (p2[0] * p3[1] - p2[1] * p3[0])
@@ -20,8 +20,8 @@ export const LineIntersection = (
 }
 
 export const LineSegmentsIntersection = (
-  p0: IPoint2D, p1: IPoint2D, // line1
-  p2: IPoint2D, p3: IPoint2D, // line2
+  p0: Vec2, p1: Vec2, // line1
+  p2: Vec2, p3: Vec2, // line2
 ) => {
   const D = (p0[0] - p1[0]) * (p2[1] - p3[1]) - (p0[1] - p1[1]) * (p2[0] - p3[0])
   if (D === 0) return null
@@ -33,6 +33,6 @@ export const LineSegmentsIntersection = (
     return null
   }
 
-  const p: IPoint2D = [p0[0] + t * (p1[0] - p0[0]), p0[1] + u * (p1[1] - p0[1])]
+  const p: Vec2 = [p0[0] + t * (p1[0] - p0[0]), p0[1] + u * (p1[1] - p0[1])]
   return p
 }

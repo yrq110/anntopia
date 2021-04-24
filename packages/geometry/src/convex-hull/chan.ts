@@ -1,18 +1,18 @@
 import GrahamScan from './graham-scan'
-import { IPoint2D } from '../util/type'
+import { Vec2 } from '../util/type'
 
-const getAngleBetween3Points = (p1: IPoint2D, p2: IPoint2D, p3: IPoint2D) => {
+const getAngleBetween3Points = (p1: Vec2, p2: Vec2, p3: Vec2) => {
   const ab = Math.sqrt((p2[0] - p1[0]) ** 2 + (p2[1] - p1[1]) ** 2)
   const bc = Math.sqrt((p2[0] - p3[0]) ** 2 + (p2[1] - p3[1]) ** 2)
   const ac = Math.sqrt((p3[0] - p1[0]) ** 2 + (p3[1] - p1[1]) ** 2)
   return Math.acos((bc * bc + ab * ab - ac * ac) / (2 * bc * ab))
 }
 
-const isSamePoint = (p1: IPoint2D, p2: IPoint2D) => (
+const isSamePoint = (p1: Vec2, p2: Vec2) => (
   p1[0] === p2[0] && p1[1] === p2[1]
 )
 
-function tangentBinarySearch(hull: IPoint2D[], p1: IPoint2D, p2: IPoint2D) {
+function tangentBinarySearch(hull: Vec2[], p1: Vec2, p2: Vec2) {
   const { length } = hull
 
   let start = 0
@@ -74,7 +74,7 @@ function tangentBinarySearch(hull: IPoint2D[], p1: IPoint2D, p2: IPoint2D) {
 
 const JarvisMarchHulls = (m: number, hulls: number[][]) => {
   const n = hulls.length
-  const getHullPoints = (index: number): IPoint2D[] => new Array(hulls[index].length / 2).fill(0)
+  const getHullPoints = (index: number): Vec2[] => new Array(hulls[index].length / 2).fill(0)
     .map((_, i) => [hulls[index][i * 2], hulls[index][i * 2 + 1]])
 
   // do not need to Jarvis march if there is only one subhull. This is our convex hull.
@@ -86,15 +86,15 @@ const JarvisMarchHulls = (m: number, hulls: number[][]) => {
     return -1
   })
 
-  const convexhull: IPoint2D[] = [getHullPoints(0)[0]]
+  const convexhull: Vec2[] = [getHullPoints(0)[0]]
 
   // initial search point set to (0, first point in the full hull) for tangent search purposes
-  const p0: IPoint2D = [0, convexhull[0][1]]
+  const p0: Vec2 = [0, convexhull[0][1]]
 
   for (let i = 0; i < m; i += 1) {
     let maxAngle = -99999999
-    let pk1: IPoint2D = [0, 0]
-    const last: IPoint2D = (i === 0) ? p0 : convexhull[i - 1]
+    let pk1: Vec2 = [0, 0]
+    const last: Vec2 = (i === 0) ? p0 : convexhull[i - 1]
     for (let j = 0; j < n; j += 1) {
       const result = tangentBinarySearch(getHullPoints(j), last, convexhull[i])
       const angle = getAngleBetween3Points(last, convexhull[i], getHullPoints(j)[result])
@@ -118,7 +118,7 @@ const Chan = (points: number[]) => {
   const getPartialHulls = (m: number, pts: number[]) => {
     const n = pts.length / 2
     let phIndex = 0
-    const partition: IPoint2D[][] = [[]]
+    const partition: Vec2[][] = [[]]
 
     for (let i = 0; i < n; i += 1) {
       if (i >= (phIndex + 1) * m) {

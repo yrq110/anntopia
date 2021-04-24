@@ -1,7 +1,7 @@
-import { mat4, vec4 } from 'gl-matrix'
 import { CardinalSplineConfig, DefaultCardinalConfig } from './config'
 import { Point2D, createPointAccessor } from '../../primitive'
 import AbstractCurve from '../base'
+import { Vec4, Mat4, transformMat4 } from '../../util'
 
 export default class CardinalSpline extends AbstractCurve<CardinalSplineConfig> {
   constructor(points: number[], config?: Partial<CardinalSplineConfig>, step?: number) {
@@ -40,19 +40,19 @@ export default class CardinalSpline extends AbstractCurve<CardinalSplineConfig> 
     }
     const s = (1 - tension) / 2
 
-    const M = mat4.fromValues(
+    const M: Mat4 = [
       -s, 2 * s, -s, 0,
       2 - s, s - 3, 0, 1,
       s - 2, 3 - 2 * s, s, 0,
       s, -s, 0, 0,
-    )
+    ]
 
     const res: number[] = []
     for (let i = 0; i < n - 3; i += 1) {
-      const px = vec4.fromValues(pt(i).x, pt(i + 1).x, pt(i + 2).x, pt(i + 3).x)
-      const py = vec4.fromValues(pt(i).y, pt(i + 1).y, pt(i + 2).y, pt(i + 3).y)
-      vec4.transformMat4(px, px, M)
-      vec4.transformMat4(py, py, M)
+      let px: Vec4 = [pt(i).x, pt(i + 1).x, pt(i + 2).x, pt(i + 3).x]
+      let py: Vec4 = [pt(i).y, pt(i + 1).y, pt(i + 2).y, pt(i + 3).y]
+      px = transformMat4(px, M)
+      py = transformMat4(py, M)
 
       for (let t = 0; t < 1; t += step) {
         const a = new Point2D(px[0], py[0]).scale(t ** 3)

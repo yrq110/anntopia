@@ -1,40 +1,61 @@
 /* eslint-disable no-bitwise */
 import { AABB } from '../bounding-box'
-import { IPoint2D, cross, dot } from '../util'
+import { Vec2, crossProduct } from '../util'
 
-export const isPointInTriangle = (p: IPoint2D, p1: IPoint2D, p2: IPoint2D, p3: IPoint2D) => {
-  const v1: IPoint2D = [p1[0] - p[0], p1[1] - p[1]]
-  const v2: IPoint2D = [p2[0] - p[0], p2[1] - p[1]]
-  const v3: IPoint2D = [p3[0] - p[0], p3[1] - p[1]]
+export const isPointInTriangle = (p: Vec2, p1: Vec2, p2: Vec2, p3: Vec2) => {
+  const v1: Vec2 = [p1[0] - p[0], p1[1] - p[1]]
+  const v2: Vec2 = [p2[0] - p[0], p2[1] - p[1]]
+  const v3: Vec2 = [p3[0] - p[0], p3[1] - p[1]]
 
-  const t1 = cross(v1, v2)
-  const t2 = cross(v2, v3)
-  const t3 = cross(v3, v1)
+  const t1 = crossProduct(v1, v2)
+  const t2 = crossProduct(v2, v3)
+  const t3 = crossProduct(v3, v1)
 
   return (t1 ^ t2) >= 0 && (t2 ^ t3) >= 0
 }
 
 /** ray casting algorithm */
-export const isPointInPolygon = (point: IPoint2D, points: number[]) => {
-  const [x, y] = point
-  let intersectNum = 0
-  const n = points.length / 2
-  for (let i = 0; i < n - 1; i += 1) {
-    const [x1, y1] = [points[i * 2], points[i * 2 + 1]]
-    const [x2, y2] = [points[(i + 1) * 2], points[(i + 1) * 2 + 1]]
-    const maxY = y1 < y2 ? y2 : y1
-    const minY = y1 < y2 ? y1 : y2
-    if (y > minY && y < maxY) {
-      const intersecPointX = (x1 * y2 - x2 * y1 - (x1 - x2) * y) / (y2 - y1)
-      if (x <= intersecPointX) {
-        intersectNum += 1
+/**
+  export const isPointInPolygon = (point: IPoint2D, points: number[]) => {
+    const [x, y] = point
+    let intersectNum = 0
+    const n = points.length / 2
+    for (let i = 0; i < n; i += 1) {
+      const [x1, y1] = [points[i * 2], points[i * 2 + 1]]
+      const [x2, y2] = [points[((i + 1) % n) * 2], points[((i + 1) % n) * 2 + 1]]
+      const [minY, maxY] = [y1, y2].sort()
+      if (y === minY || y === maxY || (y > minY && y < maxY)) {
+        const intersecPointX = x1 - ((y - y1) * (x1 - x2)) / (y2 - y1)
+        if (x <= intersecPointX) {
+          intersectNum += 1
+        }
       }
     }
+    return intersectNum % 2 !== 0
   }
-  return intersectNum % 2 !== 0
+*/
+
+/** winding number algorithm */
+export const isPointInPolygon = (point: Vec2, points: number[]) => {
+  const [x, y] = point
+  let windingNum = 0
+  const n = points.length / 2
+  for (let i = 0; i < n; i += 1) {
+    const [x1, y1] = [points[i * 2], points[i * 2 + 1]]
+    const [x2, y2] = [points[((i + 1) % n) * 2], points[((i + 1) % n) * 2 + 1]]
+    const crossVal = crossProduct([x2 - x1, y2 - y1], [x - x1, y - y1])
+    if (y1 <= y) {
+      if (y2 > y && crossVal > 0) {
+        windingNum += 1
+      }
+    } else if (y2 <= y && crossVal < 0) {
+      windingNum -= 1
+    }
+  }
+  return windingNum !== 0
 }
 
-export const PolygonIntersection = (poly0: number[], poly1: number[]) => {
+export const isPolygonsIntersection = (poly0: number[], poly1: number[]) => {
   const n = poly0.length / 2
   const m = poly1.length / 2
 

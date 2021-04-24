@@ -1,24 +1,24 @@
 import { LineSegmentsIntersection } from '../boolean-operations'
 import {
-  IPoint2D, angle, cross, clockwise,
+  Vec2, angle, crossProduct, clockwise,
 } from '../util'
 
 type Line = {
   index: number,
   angle: number,
-  p0: IPoint2D
-  p1: IPoint2D
+  p0: Vec2
+  p1: Vec2
 }
 
 // TODO: Fatal bug
 const HalfPlaneIntersection = (points: number[]) => {
   const n = points.length / 2
   const lines: Line[] = []
-  const xAxisVec: IPoint2D = [0, 1]
+  const xAxisVec: Vec2 = [0, 1]
   const isClockwise = clockwise(points)
   for (let i = 0; i < n; i += 1) {
-    let p0: IPoint2D
-    let p1: IPoint2D
+    let p0: Vec2
+    let p1: Vec2
     if (isClockwise) {
       p0 = [points[((i + 1) % n) * 2], points[((i + 1) % n) * 2 + 1]]
       p1 = [points[i * 2], points[i * 2 + 1]]
@@ -27,7 +27,7 @@ const HalfPlaneIntersection = (points: number[]) => {
       p1 = [points[((i + 1) % n) * 2], points[((i + 1) % n) * 2 + 1]]
     }
 
-    const lineVec: IPoint2D = [p1[0] - p0[0], p1[1] - p0[1]]
+    const lineVec: Vec2 = [p1[0] - p0[0], p1[1] - p0[1]]
     const ang = angle(xAxisVec, lineVec)
     lines.push({
       index: i,
@@ -41,9 +41,9 @@ const HalfPlaneIntersection = (points: number[]) => {
     const { angle: angleA, p0: pa0, p1: pa1 } = a
     const { angle: angleB, p1: pb1 } = b
     if (Math.abs(angleA - angleB) < Number.EPSILON) {
-      const va: IPoint2D = [pa1[0] - pa0[0], pa1[1] - pa0[1]]
-      const vab: IPoint2D = [pb1[0] - pa0[0], pb1[1] - pa0[1]]
-      return cross(va, vab) >= 0 ? 1 : -1
+      const va: Vec2 = [pa1[0] - pa0[0], pa1[1] - pa0[1]]
+      const vab: Vec2 = [pb1[0] - pa0[0], pb1[1] - pa0[1]]
+      return crossProduct(va, vab) >= 0 ? 1 : -1
     }
     return a.angle > b.angle ? 1 : -1
   })
@@ -60,9 +60,9 @@ const HalfPlaneIntersection = (points: number[]) => {
 
   const onRight = (la: Line, lb: Line, lc: Line) => {
     const p = LineSegmentsIntersection(lb.p0, lb.p1, lc.p0, lc.p1)
-    const va: IPoint2D = [la.p1[0] - la.p0[0], la.p1[1] - la.p0[1]]
-    const vai: IPoint2D = [p[0] - la.p0[0], p[1] - la.p0[1]]
-    return cross(va, vai) < 0
+    const va: Vec2 = [la.p1[0] - la.p0[0], la.p1[1] - la.p0[1]]
+    const vai: Vec2 = [p[0] - la.p0[0], p[1] - la.p0[1]]
+    return crossProduct(va, vai) < 0
   }
 
   const coreLines: Line[] = []
