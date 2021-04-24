@@ -2854,6 +2854,11 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/benchmark@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/@types/benchmark/-/benchmark-2.1.0.tgz#157e2ef22311d3140fb33e82a938a1beb26e78e0"
+  integrity sha512-wxT2/LZn4z0NvSfZirxmBx686CU7EXp299KHkIk79acXpQtgeYHrslFzDacPGXifC0Pe3CEaLup07bgY1PnuQw==
+
 "@types/common-tags@^1.8.0":
   version "1.8.0"
   resolved "https://registry.npmjs.org/@types/common-tags/-/common-tags-1.8.0.tgz#79d55e748d730b997be5b7fce4b74488d8b26a6b"
@@ -4486,6 +4491,14 @@ before-after-hook@^2.0.0:
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/before-after-hook/download/before-after-hook-2.2.1.tgz#73540563558687586b52ed217dad6a802ab1549c"
   integrity sha1-c1QFY1WGh1hrUu0hfa1qgCqxVJw=
+
+benchmark@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.npmjs.org/benchmark/-/benchmark-2.1.4.tgz#09f3de31c916425d498cc2ee565a0ebf3c2a5629"
+  integrity sha1-CfPeMckWQl1JjMLuVloOvzwqVik=
+  dependencies:
+    lodash "^4.17.4"
+    platform "^1.3.3"
 
 better-opn@^2.0.0:
   version "2.1.1"
@@ -13874,6 +13887,11 @@ pkg-dir@^4.1.0, pkg-dir@^4.2.0:
   integrity sha1-8JkTPfft5CLoHR2ESCcO6z5CYfM=
   dependencies:
     find-up "^4.0.0"
+
+platform@^1.3.3:
+  version "1.3.6"
+  resolved "https://registry.npmjs.org/platform/-/platform-1.3.6.tgz#48b4ce983164b209c2d45a107adb31f473a6e7a7"
+  integrity sha512-fnWVljUchTro6RiCFvCXBbNhJc2NijN7oIQxbwsyL0buWJPG85v81ehlHI9fXrJsMNgTofEoWIQeClKpgxFLrg==
 
 pnp-webpack-plugin@^1.6.4:
   version "1.6.4"
