@@ -60,6 +60,7 @@ const HalfPlaneIntersection = (points: number[]) => {
 
   const onRight = (la: Line, lb: Line, lc: Line) => {
     const p = LineSegmentsIntersection(lb.p0, lb.p1, lc.p0, lc.p1)
+    if (!p) return false
     const va: Vec2 = [la.p1[0] - la.p0[0], la.p1[1] - la.p0[1]]
     const vai: Vec2 = [p[0] - la.p0[0], p[1] - la.p0[1]]
     return crossProduct(va, vai) < 0
