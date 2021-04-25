@@ -1,11 +1,9 @@
-import { createRequire } from 'module'
-import { uniform } from './util.js'
+import { require, uniform } from './util.js'
 import { JarvisMarch, PolygonTriangulation, MinWeightTriangulation } from '../dist/index.mjs'
 
-const require = createRequire(import.meta.url)
 const { Suite } = require('benchmark')
 
-const suite = new Suite('trangulation', { async: true })
+const suite = new Suite('triangulation', { async: true })
 const points = uniform(100)
 const polygon = JarvisMarch(points)
 /**

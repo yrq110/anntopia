@@ -1,5 +1,4 @@
-import { createRequire } from 'module'
-import { uniform } from './util.js'
+import { require } from './util.js'
 import {
   CubicSpline, CubicParameterSpline,
   HermiteSpline, CardinalSpline,
@@ -7,7 +6,6 @@ import {
   BSpline, NURBS,
 } from '../dist/index.mjs'
 
-const require = createRequire(import.meta.url)
 const { Suite } = require('benchmark')
 
 const suite = new Suite('curve', { async: true })

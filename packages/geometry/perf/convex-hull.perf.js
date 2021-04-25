@@ -1,8 +1,6 @@
-import { createRequire } from 'module'
-import { uniform } from './util.js'
+import { require, uniform } from './util.js'
 import { GrahamScan, JarvisMarch, Chan } from '../dist/index.mjs'
 
-const require = createRequire(import.meta.url)
 const { Suite } = require('benchmark')
 
 const suite = new Suite('convex-hull', { async: true })
