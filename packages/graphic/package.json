@@ -1,6 +1,6 @@
 {
   "name": "@anntopia/graphic",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Computer graphic module",
   "author": "yrq110 <yrq1025@gmail.com>",
   "license": "MIT",
@@ -20,6 +20,6 @@
     "test": "jest --config ../../jest.config.json"
   },
   "dependencies": {
-    "@anntopia/geometry": "^0.0.6"
+    "@anntopia/geometry": "^0.0.7"
   }
 }
