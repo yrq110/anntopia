@@ -20,6 +20,6 @@
     "test": "jest --config ../../jest.config.json"
   },
   "dependencies": {
-    "gl-matrix": "^3.3.0"
+    "@anntopia/geometry": "^0.0.4"
   }
 }

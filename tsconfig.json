@@ -12,7 +12,6 @@
     "resolveJsonModule": true,
     "declaration": true,
     "declarationMap": false,
-    "emitDeclarationOnly": true,
     "sourceMap": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
