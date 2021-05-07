@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "name": "@anntopia/document",
   "description": "Anntopia document site",
   "author": "yrq110 <yrq1025@gmail.com>",
@@ -16,7 +16,7 @@
     "build": "rimraf .docz && docz build"
   },
   "dependencies": {
-    "@anntopia/geometry": "^0.0.5",
+    "@anntopia/geometry": "^0.0.6",
     "@emotion/react": "^11.1.1",
     "@emotion/styled": "^11.0.0",
     "docz": "latest",
