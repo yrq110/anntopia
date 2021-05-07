@@ -2,7 +2,8 @@ import {
   CubicSpline, CubicParameterSpline, CardinalSpline,
   HermiteSpline, BSpline, BezierSpline, NURBS, createNonUniformKnots,
   GrahamScan, Chan, JarvisMarch, MinAreaBox, MinPerimeterBox,
-  triangleCircumcircle, DelaunayTriangulation, PolygonTriangulation, MinWeightTriangulation, PolygonIntersection, VoronoiDiagram, LargestEmptyCircle, FarthestPair, ClosestPair, HalfPlaneIntersection
+  triangleCircumcircle, DelaunayTriangulation, PolygonTriangulation, MinWeightTriangulation, VoronoiDiagram, LargestEmptyCircle, FarthestPair, ClosestPair, HalfPlaneIntersection,
+  AABB,
 } from '@anntopia/geometry'
 
 const canvas = document.createElement('canvas')
@@ -192,25 +193,31 @@ function gaussian(count: number) {
   return points
 }
 
-// const polygonPoints = [
-//   30, 100,
-//   80, 50,
-//   120, 60,
-//   150, 50,
-//   180, 100,
-//   120, 120,
-//   80, 150,
-// ]
+const DefaultPoints = random(5, 5)
+console.log(DefaultPoints)
+console.log(AABB(DefaultPoints))
+console.log(MinAreaBox(DefaultPoints))
+console.log(MinPerimeterBox(DefaultPoints))
+
 const polygonPoints = [
-  30, 30,
-  50, 25,
-  // 50, 190,
-  // 150, 200,
-  150, 140,
-  180, 130,
-  180, 230,
-  30, 230,
+  30, 100,
+  80, 50,
+  120, 60,
+  150, 50,
+  180, 100,
+  120, 120,
+  80, 150,
 ]
+// const polygonPoints = [
+//   30, 30,
+//   50, 25,
+//   // 50, 190,
+//   // 150, 200,
+//   150, 140,
+//   180, 130,
+//   180, 230,
+//   // 30, 230,
+// ]
 // drawLines(polygonPoints, ctx, [100, 100], true)
 
 // const halfplane = HalfPlaneIntersection(polygonPoints)
@@ -229,8 +236,8 @@ const polygonPoints = [
 // })
 
 // const trianglePoints = uniform(5)
-const trianglePoints = gaussian(50)
-drawPoints(trianglePoints, ctx, [100, 100])
+// const trianglePoints = gaussian(50)
+// drawPoints(trianglePoints, ctx, [100, 100])
 // const convex = Chan(trianglePoints)
 // drawLines(convex, ctx, [100, 100], true)
 
@@ -269,20 +276,20 @@ drawPoints(trianglePoints, ctx, [100, 100])
 // console.log(edges)
 
 // const result = GrahamScan(trianglePoints)
-const polygon = Chan(trianglePoints)
+// const polygon = Chan(trianglePoints)
 // const result = JarvisMarch(trianglePoints)
-drawLines(polygon, ctx, [100, 100], true)
+// drawLines(polygon, ctx, [100, 100], true)
 
-const results = DelaunayTriangulation(polygon)
+// const results = DelaunayTriangulation(polygon)
 // const results = MinWeightTriangulation(polygon)
-results.forEach((t, index) => {
-  const tri = t.flat()
-  if (index < 2) {
-    drawLines(tri, ctx, [100, 100], true, true)
-  } else {
-    drawLines(tri, ctx, [100, 100], true)
-  }
-})
+// results.forEach((t, index) => {
+//   const tri = t.flat()
+//   if (index < 2) {
+//     drawLines(tri, ctx, [100, 100], true, true)
+//   } else {
+//     drawLines(tri, ctx, [100, 100], true)
+//   }
+// })
 // drawLines(results, ctx, [30, 30], true)
 // drawPoints(RandomPoints, ctx, [30, 30])
 
@@ -291,6 +298,7 @@ results.forEach((t, index) => {
 // const spline = new BezierSpline(CrossPoints)
 // const spline = new CardinalSpline(CrossPoints)
 // const spline = new CubicSpline(CrossPoints)
+// const spline = new CubicSpline(polygonPoints)
 // const spline = new CubicParameterSpline(CrossPoints)
 // const spline = new HermiteSpline(CrossPoints)
 // const interpolation = spline.getInterpolation()

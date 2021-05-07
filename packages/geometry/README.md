@@ -54,7 +54,7 @@
 ## Area
 
 - [x] largest empty circle
-- [x] voronoi diagram [bug]
+- [x] voronoi diagram
 - [x] shoelace algorithm
 - [x] half plane intersection [bug]
 
