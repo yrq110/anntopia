@@ -19,14 +19,15 @@ const runner = (Ctor, dataPoints) => {
 }
 
 /**
- * #eae1e3
- * CubicSpline x 26.37 ops/sec ±4.18% (49 runs sampled)
- * CubicParameterSpline x 10.07 ops/sec ±7.72% (31 runs sampled)
- * HermiteSpline x 1,963 ops/sec ±0.66% (93 runs sampled)
- * CardinalSpline x 2,238 ops/sec ±0.63% (93 runs sampled)
- * BezierSpline x 1,521 ops/sec ±0.55% (93 runs sampled)
- * BSpline x 1,177 ops/sec ±0.62% (93 runs sampled)
- * NURBS x 1,155 ops/sec ±0.81% (95 runs sampled)
+ * #757c06
+ * CubicSpline x 26.54 ops/sec ±3.11% (48 runs sampled)
+ * CubicParameterSpline x 9.66 ops/sec ±8.16% (30 runs sampled)
+ * HermiteSpline x 1,940 ops/sec ±1.05% (87 runs sampled)
+ * CardinalSpline x 2,268 ops/sec ±0.74% (96 runs sampled)
+ * BezierSpline x 1,543 ops/sec ±0.84% (95 runs sampled)
+ * CatmullRomSpline x 604 ops/sec ±0.70% (92 runs sampled)
+ * BSpline x 1,244 ops/sec ±0.62% (94 runs sampled)
+ * NURBS x 1,240 ops/sec ±0.61% (94 runs sampled)
  * The fastest is CardinalSpline
  * */
 suite.add('CubicSpline', () => { runner(CubicSpline, points) })
