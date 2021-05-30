@@ -1,5 +1,5 @@
 import {
-  CubicSpline, CubicParameterSpline, CardinalSpline,
+  CubicSpline, CubicParameterSpline, CardinalSpline, CatmullRomSpline,
   HermiteSpline, BSpline, BezierSpline, NURBS, createNonUniformKnots,
   GrahamScan, Chan, JarvisMarch, MinAreaBox, MinPerimeterBox,
   triangleCircumcircle, DelaunayTriangulation, PolygonTriangulation, MinWeightTriangulation, VoronoiDiagram, LargestEmptyCircle, FarthestPair, ClosestPair, HalfPlaneIntersection,
@@ -301,9 +301,10 @@ const polygonPoints = [
 // const spline = new CubicSpline(polygonPoints)
 // const spline = new CubicParameterSpline(CrossPoints)
 // const spline = new HermiteSpline(CrossPoints)
-// const interpolation = spline.getInterpolation()
-// drawLines(interpolation, ctx, [0, 30])
-// drawPoints(spline.dataPoints, ctx, [0, 30])
+const spline = new CatmullRomSpline(CrossPoints)
+const interpolation = spline.getInterpolation()
+drawLines(interpolation, ctx, [0, 30])
+drawPoints(spline.dataPoints, ctx, [0, 30])
 // console.log(interpolation)
 
 // const CrossPoints = [

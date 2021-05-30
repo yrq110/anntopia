@@ -3,6 +3,7 @@ import {
   CubicSpline, CubicParameterSpline,
   HermiteSpline, CardinalSpline,
   BezierSpline,
+  CatmullRomSpline,
   BSpline, NURBS,
 } from '../dist/index.mjs'
 
@@ -33,6 +34,7 @@ suite.add('CubicSpline', () => { runner(CubicSpline, points) })
   .add('HermiteSpline', () => { runner(HermiteSpline, points) })
   .add('CardinalSpline', () => { runner(CardinalSpline, points) })
   .add('BezierSpline', () => { runner(BezierSpline, points) })
+  .add('CatmullRomSpline', () => { runner(CatmullRomSpline, points) })
   .add('BSpline', () => { runner(BSpline, points) })
   .add('NURBS', () => { runner(NURBS, points) })
   .on('cycle', (event) => {

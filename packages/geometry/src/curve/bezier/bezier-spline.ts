@@ -1,4 +1,4 @@
-import { BezierSplineConfig, DefaultConfig } from './config'
+import { BezierSplineConfig, DefaultBezierConfig } from './config'
 import AbstractCurve from '../base'
 import BezierCurve from './bezier-curve'
 import { Point2D } from '../../primitive'
@@ -45,8 +45,8 @@ export default class BezierSpline extends AbstractCurve<BezierSplineConfig> {
     super(
       points,
       config
-        ? Object.assign(DefaultConfig, config)
-        : DefaultConfig,
+        ? Object.assign(DefaultBezierConfig, config)
+        : DefaultBezierConfig,
       step,
     )
   }

@@ -5,7 +5,7 @@ route: /geometry/curve
 ---
 
 import { Playground, Props } from 'docz'
-import { CubicSpline, CubicParameterSpline, BoundaryCondition, createQuasiUniformKnots, createNonUniformKnots, HermiteSpline, CardinalSpline, BezierSpline, BSpline, NURBS } from '@anntopia/geometry'
+import { CubicSpline, CubicParameterSpline, BoundaryCondition, createQuasiUniformKnots, createNonUniformKnots, HermiteSpline, CardinalSpline, BezierSpline, BSpline, NURBS, CatmullRomSpline } from '@anntopia/geometry'
 import Canvas from '../components/Canvas'
 import { uniform } from '../utils/randomPoints'
 
@@ -210,6 +210,30 @@ closed | boolean | Closed curve. Default is `false`.
       const spline = new BezierSpline(dataPoints)
       spline.setConfig({ tension: 0.7, closed: true })
       spline.setStep(0.001)
+      const points = spline.getInterpolation()
+      return  <Canvas points={dataPoints} lines={[points]}/>
+    }
+  }
+</Playground>
+
+
+## CatmullRom Spline
+
+### Playground
+
+<Playground>
+  {
+    () => {
+      // import { CatmullRomSpline } from '@anntopia/geometry'
+      const dataPoints = [
+        50, 250,
+        200, 150,
+        100, 50,
+        250, 70,
+        400, 50,
+        450, 250,
+      ]
+      const spline = new CatmullRomSpline(dataPoints)
       const points = spline.getInterpolation()
       return  <Canvas points={dataPoints} lines={[points]}/>
     }

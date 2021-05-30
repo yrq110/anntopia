@@ -3,7 +3,7 @@ export type BezierSplineConfig = {
   closed: boolean,
 }
 
-export const DefaultConfig: BezierSplineConfig = {
+export const DefaultBezierConfig: BezierSplineConfig = {
   tension: 0.5,
   closed: false,
 }
