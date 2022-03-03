@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "@anntopia/site",
+  "version": "0.0.1",
+  "description": "Document site for anntopia",
+  "author": "yrq110 <yrq1025@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev .",
+    "build": "vuepress build ."
+  },
+  "dependencies": {
+    "vuepress": "^2.0.0-beta.35"
+  }
+}

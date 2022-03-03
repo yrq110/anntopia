@@ -19,3 +19,6 @@ lerna-debug.log*
 .docz
 
 .history
+
+.temp
+.cache
