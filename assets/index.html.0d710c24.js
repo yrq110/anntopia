@@ -1,0 +1,1 @@
+const e={key:"v-516d5b24",path:"/geometry/",title:"Overview",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Install",slug:"install",children:[]},{level:2,title:"Use",slug:"use",children:[]}],git:{updatedTime:null,contributors:[]},filePathRelative:"geometry/index.md"};export{e as data};
