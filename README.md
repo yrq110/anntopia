@@ -14,7 +14,6 @@
 | ![](https://cdn.jsdelivr.net/gh/yrq110/anntopia/assets/triangulation.png) | ![](https://cdn.jsdelivr.net/gh/yrq110/anntopia/assets/distance.png) | ![](https://cdn.jsdelivr.net/gh/yrq110/anntopia/assets/area.png) |
 | [Triangulation](https://yrq110.me/anntopia/geometry/triangulation) | [Distance](https://yrq110.me/anntopia/geometry/distance) | [Area](https://yrq110.me/anntopia/geometry/area) |
 | ![](https://cdn.jsdelivr.net/gh/yrq110/anntopia/assets/boolean.png) | ![]() | ![]() |
-| [BooleanOperation](https://yrq110.me/anntopia/geometry/boolean-operation) |  | |
 ### @anntopia/graphic (Todo)
 ### @anntopia/image (Todo)
 

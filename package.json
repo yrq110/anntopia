@@ -12,7 +12,7 @@
     "test": "pnpm test --filter geometry --filter graphic --filter image",
     "lint": "pnpm exec eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "pnpm exec eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "pub:doc": "pnpm build:site && gh-pages -d packages/document/.docz/dist"
+    "pub:doc": "pnpm build:site && gh-pages -d packages/site/docs/.vuepress/dist"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
