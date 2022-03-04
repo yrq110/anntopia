@@ -8,7 +8,7 @@
 - [x] cubic parameter spline
 - [x] hermite spline
 - [x] cardinal spline
-- [ ] catmull rom spline
+- [x] catmull rom spline
 - [ ] lagrange spline
 - [ ] akima spline
 - [x] bezier spline
